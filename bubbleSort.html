@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+    <head>
+    <title>sort algorithms</title>
+    </head>
+    <body>
+    <script>
+        //looking at the inbuilt javascript sort method
+        //we notice that the technique or rather method doesnt work so well with numerals
+        
+        
+        //like an array of [100,2,3,23,45,4,5].sort() === rubbish wont be properly sorted 
+        //so we fix this using a compare method/function code snippet 
+        //written as so/ follow the logic
+        
+        
+        
+        //in a compare function what happens is 
+        //when u pass arameters (a,b) or in our case (n1,n2)
+        //if the resultant value from said parameter sum is negative then a come before b or n1 before n2
+        //ex if n1 - n2 === and n1 = 6 && n2 = 10 6 - 10 = -4 so 6 so in a sort algos 6 < 10 so sort 6 before 10
+        function compare(n1,n2)
+        {
+            return n1 - n2;
+        }
+        
+        //hence
+        console.log([100,2,3,23,45,4,5].sort(compare));
+        
+        
+        
+        //looking at compare2 we are going to short circuit or test n2 against n1 
+        //and if n2 - n1 is positive b comes before a or n2 before n1
+        //but if n2 - n1 where n2 = 10 && n1 = 6 hence  === 10 - 6 then 10 > 6 so sort 10 before 6
+        function compare2(n1,n2)
+        {
+            return n2 - n1;
+        }
+        
+        //hence
+        console.log([100,2,3,23,45,4,5].sort(compare2));
+        
+        
+        
+        //now to sort and order strings by length and not alphabetically
+        //write a compare function and pass parameter . length as so
+        
+        function compare3(s1,s2)
+        {
+            return s1.length - s2.length
+        }
+        
+        console.log(['ofodile','ozo','google','getting', 'ready', 'interview','tired', 'of','smoking', 'weed','being','broke'].sort(compare3));
+        
+        
+        function compare4(s1,s2)
+        {
+             return s2.length - s1.length;
+        }//reverse
+        console.log(['ofodile','ozo','google','getting', 'ready', 'interview','tired', 'of','smoking', 'weed','being','broke'].sort(compare4));
+        
+        
+        
+        function buuort(arr,num)
+        {
+             var sorted = [];
+            for(var i = 0;i <= arr.length -1; i--)
+                {
+                    for(let j = 0; j < arr[i].length-1; j++)
+                    {
+                        if(arr[j] > arr[j+1])
+                        {
+                            //swap here
+                        }
+                    }
+                }
+            return sort;
+        }
+        
+        
+        //bubbbe sort naive approach
+        
+        function bub(arr)
+        {
+            for(let i = arr.length; i > 0; i--)
+            {
+                for(let j = 0; j < i - 1; j++)
+                {
+                    console.log(arr, arr[j], arr[j + 1]);
+                    if(arr[j] > arr[j + 1])
+                    {
+                        //swap
+                        let temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                        
+                        
+                    }
+                    
+                
+                }
+                console.log('one pass');
+            }
+            
+            return arr;
+        }
+        
+        //bub([23,32,4,5,54,34,1,2,9]);
+        
+        
+        //note this is the es2015 version or es6
+        
+        function bb_sort(arr)
+        {
+            const swap = (arr,idx1,idx2)=>{[arr[idx1],arr[idx2] = arr[idx2], arr[idx1]]};
+            
+            for(let i = arr.length; i >0; i--)
+                {
+                    for(let j = 0; j < i - 1; j++)
+                    {
+                        if(arr[j] > arr[j+1])
+                        {
+                            //swap
+                            swap(arr, j, j+1);
+                        }
+                    }
+                }
+            return arr;
+        }
+      console.log(bb_sort([3,5,7,9,2,4,4,55,66,21,15]));
+        
+        // Optimized BubbleSort with noSwaps
+function bubbleSort(arr){
+  var noSwaps;
+  for(var i = arr.length; i > 0; i--){
+    noSwaps = true;
+    for(var j = 0; j < i - 1; j++){
+      if(arr[j] > arr[j+1]){
+        var temp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = temp;
+        noSwaps = false;         
+      }
+    }
+    if(noSwaps) break;
+  }
+  return arr;
+}
+
+bubbleSort([8,1,2,3,4,5,6,7]);
+        
+        
+        function bubb_sort(arr)
+        {
+            var noSwaps;
+            
+            for(var i = arr.length; i > 0; i--)
+            {
+                noSwaps = true;
+                for(var j = 0; j < i - 1; j++)
+                    {
+                        if(arr[j] > arr[j + 1])
+                        {
+                            var temp = arr[j];
+                            arr[j] = arr[j + 1];
+                            arr[j+1] = temp;
+                            noSwaps = false;
+                        }
+                    }
+                    if(noSwaps) break;
+            }
+             return arr;
+        }
+    </script>
+    </body>
+</html>
